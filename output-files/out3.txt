@@ -1,0 +1,3 @@
+Dron con id=0.2809803818410309 tiene 9 pedidos y esta en la coordenada (-2,4) direccion= North
+Dron con id=0.2809803818410309 tiene 8 pedidos y esta en la coordenada (-3,3) direccion= West
+Dron con id=0.2809803818410309 tiene 7 pedidos y esta en la coordenada (-6,2) direccion= North
