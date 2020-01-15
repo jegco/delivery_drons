@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Delivery {
+    private String id;
     private List<DeliveryRoute> deliveryOrder;
     private Drone drone;
     private List<String> deliveryReport;
 
-    public Delivery(List<DeliveryRoute> deliveryOrder, Drone drone) {
+    public Delivery( String id ,List<DeliveryRoute> deliveryOrder, Drone drone) {
+        this.id = id;
         this.deliveryOrder = deliveryOrder;
         this.drone = drone;
         this.deliveryReport = new ArrayList<>();
@@ -38,6 +40,10 @@ public class Delivery {
                         break;
                 }
         });
+    }
+
+    public String getId() {
+        return id;
     }
 
     public List<DeliveryRoute> getDeliveryOrder() {

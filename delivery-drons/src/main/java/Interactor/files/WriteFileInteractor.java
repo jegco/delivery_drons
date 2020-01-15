@@ -4,14 +4,14 @@ import Interactor.base.ObservableInteractor;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import io.reactivex.Observable;
+import models.Delivery;
 import repositories.FileManagementRepository;
 
 import java.util.List;
 
-public class WriteFileInteractor extends ObservableInteractor<List<String>, List<String>> {
+public class WriteFileInteractor extends ObservableInteractor<Delivery, List<String>> {
 
     private FileManagementRepository fileManagementRepository;
-    private int count = 0;
 
     @Inject
     public WriteFileInteractor(@Named("FileManagementService") FileManagementRepository fileManagementRepository) {
@@ -19,9 +19,11 @@ public class WriteFileInteractor extends ObservableInteractor<List<String>, List
     }
 
     @Override
-    protected Observable<List<String>> buildUseCase(List<String> report) {
-        fileManagementRepository.writeFile(report, count);
-        count++;
-        return Observable.just(report);
+    protected Observable<List<String>> buildUseCase(Delivery delivery) {
+        return Observable.create(observableEmitter -> {
+            fileManagementRepository.writeFile(delivery);
+            observableEmitter.onNext(delivery.getDeliveryReport());
+            observableEmitter.onComplete();
+        });
     }
 }

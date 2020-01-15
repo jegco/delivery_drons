@@ -30,7 +30,7 @@ public class DeliveryTest {
         routes = new ArrayList<>();
         DeliveryRoute route = new DeliveryRoute(instructions);
         routes.add(route);
-        delivery = new Delivery(routes, drone);
+        delivery = new Delivery("0", routes, drone);
     }
 
     @Test

@@ -6,6 +6,7 @@ import com.google.inject.name.Named;
 import io.reactivex.BackpressureStrategy;
 import io.reactivex.Flowable;
 import io.reactivex.Observable;
+import models.Delivery;
 import models.DeliveryRoute;
 import repositories.FileManagementRepository;
 
@@ -13,7 +14,7 @@ import java.io.File;
 import java.util.List;
 import java.util.Objects;
 
-public class ReadFileInteractor extends FlowableInteractor<Integer, List<DeliveryRoute>> {
+public class ReadFileInteractor extends FlowableInteractor<Integer, Delivery> {
 
     private FileManagementRepository fileManagementRepository;
 
@@ -23,7 +24,7 @@ public class ReadFileInteractor extends FlowableInteractor<Integer, List<Deliver
     }
 
     @Override
-    protected Flowable<List<DeliveryRoute>> buildUseCase(Integer numberOfFiles) {
+    protected Flowable<Delivery> buildUseCase(Integer numberOfFiles) {
         File dir = new File("../input-files/");
         return Observable.fromArray(Objects.requireNonNull(dir.listFiles((d, name) -> name.endsWith(".txt"))))
                 .take(numberOfFiles)

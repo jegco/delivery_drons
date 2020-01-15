@@ -30,10 +30,10 @@ public class DeliveryDIModule extends AbstractModule {
                 .annotatedWith(Names.named("FileManagementService"))
                 .to(FileManagementRepositoryImpl.class);
 
-        bind(new TypeLiteral<ExpensiveInteractor<Integer, List<DeliveryRoute>>>() {
+        bind(new TypeLiteral<ExpensiveInteractor<Integer, Delivery>>() {
         }).to(ReadFileInteractor.class);
 
-        bind(new TypeLiteral<Interactor<List<String>, List<String>>>() {
+        bind(new TypeLiteral<Interactor<Delivery, List<String>>>() {
         }).to(WriteFileInteractor.class);
 
         bind(new TypeLiteral<Interactor<Delivery, Delivery>>() {

@@ -1,13 +1,11 @@
 package repositories;
 
-import models.DeliveryRoute;
+import models.Delivery;
 
 import java.io.File;
-import java.io.IOException;
-import java.util.List;
 
 public interface FileManagementRepository {
-    List<DeliveryRoute> readFile(File file);
+    Delivery readFile(File file);
 
-    void writeFile(List<String> report, int reportNumber);
+    void writeFile(Delivery delivery);
 }
