@@ -12,10 +12,7 @@ import models.Delivery;
 import models.DeliveryRoute;
 import repositories.FileManagementRepository;
 import repositories.FileManagementRepositoryImpl;
-import usecases.delivery.DeliveryService;
-import usecases.delivery.DeliveryServiceImpl;
-import usecases.instruction.InstructionService;
-import usecases.instruction.InstructionServiceImpl;
+import utils.RoutesMapper;
 
 import java.util.List;
 
@@ -25,13 +22,9 @@ public class DeliveryDIModule extends AbstractModule {
     @Override
     protected void configure() {
 
-        bind(InstructionService.class)
-                .annotatedWith(Names.named("InstructionService"))
-                .to(InstructionServiceImpl.class);
-
-        bind(DeliveryService.class)
-                .annotatedWith(Names.named("DeliveryService"))
-                .to(DeliveryServiceImpl.class);
+        bind(RoutesMapper.class)
+                .annotatedWith(Names.named("RoutesMapper"))
+                .to(RoutesMapper.class);
 
         bind(FileManagementRepository.class)
                 .annotatedWith(Names.named("FileManagementService"))

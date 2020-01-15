@@ -14,12 +14,34 @@ public class Delivery {
         this.deliveryReport = new ArrayList<>();
     }
 
-    public List<DeliveryRoute> getDeliveryOrder() {
-        return deliveryOrder;
+    public Delivery go() {
+        for (DeliveryRoute deliveryRoute : getDeliveryOrder()) {
+            runInstructions(deliveryRoute);
+            drone.setCapacity(drone.getCapacity() -1);
+            deliveryReport.add(drone.toString());
+        }
+        return this;
     }
 
-    public void setDeliveryOrder(List<DeliveryRoute> deliveryOrder) {
-        this.deliveryOrder = deliveryOrder;
+    void runInstructions(DeliveryRoute instructions) {
+        instructions.getRoutes().forEach(instruction -> {
+            if (instruction != null)
+                switch (instruction) {
+                    case A:
+                        drone.moveForward();
+                        break;
+                    case D:
+                        drone.rotateRight();
+                        break;
+                    case I:
+                        drone.rotateLeft();
+                        break;
+                }
+        });
+    }
+
+    public List<DeliveryRoute> getDeliveryOrder() {
+        return deliveryOrder;
     }
 
     public Drone getDrone() {

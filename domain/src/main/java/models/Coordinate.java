@@ -5,33 +5,39 @@ public class Coordinate {
     private int y;
     private Orientation orientation;
 
-    public Coordinate() {
+    Coordinate() {
         this.x = 0;
         this.y = 0;
         this.orientation = Orientation.North;
     }
 
-    public int getX() {
+    Coordinate(int x, int y, Orientation orientation) {
+        this.x = x;
+        this.y = y;
+        this.orientation = orientation;
+    }
+
+    int getX() {
         return x;
     }
 
-    public void setX(int x) {
+    void setX(int x) {
         this.x = x;
     }
 
-    public int getY() {
+    int getY() {
         return y;
     }
 
-    public void setY(int y) {
+    void setY(int y) {
         this.y = y;
     }
 
-    public Orientation getOrientation() {
+    Orientation getOrientation() {
         return orientation;
     }
 
-    public void setOrientation(Orientation orientation) {
+    void setOrientation(Orientation orientation) {
         this.orientation = orientation;
     }
 
