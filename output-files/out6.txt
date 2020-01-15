@@ -1,6 +1,0 @@
-Dron con id=0.9576775322959856 tiene 9 pedidos y esta en la coordenada (-2,4) direccion= North
-Dron con id=0.9576775322959856 tiene 8 pedidos y esta en la coordenada (-3,3) direccion= West
-Dron con id=0.9576775322959856 tiene 7 pedidos y esta en la coordenada (-6,2) direccion= North
-Dron con id=0.9576775322959856 tiene 6 pedidos y esta en la coordenada (-8,6) direccion= North
-Dron con id=0.9576775322959856 tiene 5 pedidos y esta en la coordenada (-9,5) direccion= West
-Dron con id=0.9576775322959856 tiene 4 pedidos y esta en la coordenada (-12,4) direccion= North
