@@ -5,16 +5,16 @@ public class Drone {
     private int capacity;
     private Coordinate coordinate;
 
-    public Drone(String id, int capacity, Coordinate coordinate) {
-        this.id = id;
-        this.capacity = capacity;
-        this.coordinate = coordinate;
-    }
-
     public Drone(String id, int capacity) {
         this.id = id;
         this.capacity = capacity;
         this.coordinate = new Coordinate();
+    }
+
+    public Drone(String id, int capacity, Coordinate coordinate) {
+        this.id = id;
+        this.capacity = capacity;
+        this.coordinate = coordinate;
     }
 
     public void rotateRight() {
@@ -71,34 +71,20 @@ public class Drone {
         }
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public int getCapacity() {
         return capacity;
     }
 
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
+    public Drone updateDroneDeliveriesLeft() {
+        return new Drone(this.id, this.capacity - 1, this.coordinate);
     }
 
     public Coordinate getCoordinate() {
         return coordinate;
     }
 
-    public void setCoordinate(Coordinate coordinate) {
-        this.coordinate = coordinate;
-    }
-
     @Override
     public String toString() {
-        return "Dron con id=" + id +
-                " tiene " + capacity +
-                " pedidos y esta en la coordenada " + coordinate.toString();
+        return coordinate.toString();
     }
 }

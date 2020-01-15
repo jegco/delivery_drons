@@ -39,6 +39,8 @@ public class FileManagementRepositoryImpl implements FileManagementRepository {
             File logFile = new File("../output-files/out" + reportNumber + ".txt");
 
             writer = new BufferedWriter(new FileWriter(logFile));
+            writer.write("== Reporte de entregas ==");
+            writer.newLine();
             for (String status: report) {
                 writer.write(status);
                 writer.newLine();

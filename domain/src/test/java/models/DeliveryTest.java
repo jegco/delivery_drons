@@ -27,7 +27,6 @@ public class DeliveryTest {
         instructions.add(Instruction.I);
         instructions.add(Instruction.A);
         instructions.add(Instruction.A);
-        instructions.add(Instruction.D);
         routes = new ArrayList<>();
         DeliveryRoute route = new DeliveryRoute(instructions);
         routes.add(route);
@@ -39,7 +38,7 @@ public class DeliveryTest {
         delivery.runInstructions(routes.get(0));
         Assert.assertEquals(-2, delivery.getDrone().getCoordinate().getX());
         Assert.assertEquals(4, delivery.getDrone().getCoordinate().getY());
-        Assert.assertEquals(Orientation.North, delivery.getDrone().getCoordinate().getOrientation());
+        Assert.assertEquals(Orientation.West, delivery.getDrone().getCoordinate().getOrientation());
     }
 
     @Test
@@ -47,7 +46,7 @@ public class DeliveryTest {
         delivery.go();
         Assert.assertEquals(2, delivery.getDrone().getCapacity());
         Assert.assertEquals(1, delivery.getDeliveryReport().size());
-        Assert.assertEquals("Dron con id=000 tiene 2 pedidos y esta en la coordenada (-2,4) direccion = North",
+        Assert.assertEquals("(-2,4) direccion = West",
                 delivery.getDeliveryReport().get(0));
     }
 }

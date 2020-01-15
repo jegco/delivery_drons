@@ -17,7 +17,7 @@ public class Delivery {
     public Delivery go() {
         for (DeliveryRoute deliveryRoute : getDeliveryOrder()) {
             runInstructions(deliveryRoute);
-            drone.setCapacity(drone.getCapacity() -1);
+            drone = drone.updateDroneDeliveriesLeft();
             deliveryReport.add(drone.toString());
         }
         return this;
@@ -46,10 +46,6 @@ public class Delivery {
 
     public Drone getDrone() {
         return drone;
-    }
-
-    public void setDrone(Drone drone) {
-        this.drone = drone;
     }
 
     public List<String> getDeliveryReport() {

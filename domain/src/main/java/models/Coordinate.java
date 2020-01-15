@@ -11,12 +11,6 @@ public class Coordinate {
         this.orientation = Orientation.North;
     }
 
-    Coordinate(int x, int y, Orientation orientation) {
-        this.x = x;
-        this.y = y;
-        this.orientation = orientation;
-    }
-
     int getX() {
         return x;
     }
